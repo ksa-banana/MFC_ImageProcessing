@@ -1,5 +1,4 @@
 # MFC_ImageProcessing
-2020 혁신성장 청년인재 인공지능(AI) 전문가 집중양성: MFC_ImageProcessing
 ## 2020 혁신성장 청년인재 인공지능(AI) 전문가 집중양성: MFC_ImageProcessing
 <h4>[장소] KSA 한국표준협회</h4>
 <h4>[강사] 정대식 상명대 교수님</h4>
@@ -27,7 +26,7 @@
 
 <ul>
   <li>
-    <h5><a href="https://github.com/ksa-banana/Java_Programming/tree/master/version1.0">프로젝트 명: BMP 파일 합성</a></h5>
+    <h5><a href="">프로젝트 명: BMP 파일 합성</a></h5>
     <ul>
       <li>
     <h5>프로젝트 구현 목적: BMP 파일의 입출력과 MASK 연산</h5>
