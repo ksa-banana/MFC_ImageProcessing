@@ -1,4 +1,3 @@
-# MFC_ImageProcessing
 ## 2020 혁신성장 청년인재 인공지능(AI) 전문가 집중양성: MFC_ImageProcessing
 <h4>[장소] KSA 한국표준협회</h4>
 <h4>[강사] 정대식 상명대 교수님</h4>
