@@ -49,6 +49,7 @@ public:
 	afx_msg void OnFrameSum();
 	afx_msg void OnFrameAnd();
 	afx_msg void OnNegaTransform();
+	afx_msg void OnFrameComb();
 };
 
 #ifndef _DEBUG  // IMG_KJY_20200725View.cpp의 디버그 버전

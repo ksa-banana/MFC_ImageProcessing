@@ -84,5 +84,6 @@ public:
 
 	void OnFrameSum();
 	void OnFrameAnd();
-
+	void OnNegaTransform();
+	void OnFrameComb();
 };

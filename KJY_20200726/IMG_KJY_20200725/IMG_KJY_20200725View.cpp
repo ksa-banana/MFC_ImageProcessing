@@ -34,6 +34,8 @@ BEGIN_MESSAGE_MAP(CIMGKJY20200725View, CView)
 	ON_COMMAND(ID_FRAME_SUM, &CIMGKJY20200725View::OnFrameSum)
 	ON_COMMAND(ID_FRAME_AND, &CIMGKJY20200725View::OnFrameAnd)
 
+	ON_COMMAND(ID_NEGA_TRANSFORM, &CIMGKJY20200725View::OnNegaTransform)
+	ON_COMMAND(ID_FRAME_COMB, &CIMGKJY20200725View::OnFrameComb)
 END_MESSAGE_MAP()
 
 // CIMGKJY20200725View 생성/소멸
@@ -266,3 +268,21 @@ void CIMGKJY20200725View::OnFrameAnd()
 	Invalidate(TRUE);
 }
 
+
+
+void CIMGKJY20200725View::OnNegaTransform()
+{
+	CIMGKJY20200725Doc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+	pDoc->OnNegaTransform();
+	Invalidate(TRUE);
+}
+
+
+void CIMGKJY20200725View::OnFrameComb()
+{
+	CIMGKJY20200725Doc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+	pDoc->OnFrameComb();
+	Invalidate(TRUE);
+}
