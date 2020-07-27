@@ -12,7 +12,7 @@
 <h4> (1) Use Case Diagram</h4>
 <img src="https://github.com/ksa-banana/MFC_ImageProcessing/blob/master/FlowChart/UseCase.png" width="70%" height="70%">
 <h4> (2) Sequence Diagram</h4>
-<img src="https://github.com/ksa-banana/MFC_ImageProcessing/blob/master/FlowChart/SequenceDiagram.png" width="70%" height="70%">
+<img src="https://github.com/ksa-banana/MFC_ImageProcessing/blob/master/FlowChart/SequenceDiagram.png" width="50%" height="50%">
 <h4> (3) Class Diagram</h4>
 <img src="" width="70%" height="70%">
 <br>
@@ -83,7 +83,7 @@
  <li><h4>OnOpenDocument 알고리즘</h4></li>
  <img src="https://github.com/ksa-banana/MFC_ImageProcessing/blob/master/FlowChart/OnOpenDocument.png" width="70%" height="70%">
   <li><h4>OnSaveDocument 알고리즘</h4></li>
- <img src="https://github.com/ksa-banana/MFC_ImageProcessing/blob/master/FlowChart/OnSaveDocument.png" width="70%" height="70%">
+ <img src="https://github.com/ksa-banana/MFC_ImageProcessing/blob/master/FlowChart/OnSaveDocument.png" width="50%" height="50%">
   <li><h4>OnFrameComb 알고리즘</h4></li>
  <img src="" width="70%" height="70%">
 </ul>
