@@ -10,11 +10,11 @@
 <h3> 2. 구조 설계 (Structure Design)</h3>
 <h4> 1) UML(Unified Modeling Language) Diagram </h4>
 <h4> (1) Use Case Diagram</h4>
-<img src="https://github.com/ksa-banana/Java_Programming/blob/master/UML_Diagram/Scientific_Calculator_Use_Case_Diagram.png?raw=true" width="70%" height="70%">
+<img src="" width="70%" height="70%">
 <h4> (2) Sequence Diagram</h4>
-<img src="https://github.com/ksa-banana/Java_Programming/blob/master/UML_Diagram/Scientific_Calculator_Sequence_Diagram.png?raw=true" width="70%" height="70%">
+<img src="" width="70%" height="70%">
 <h4> (3) Class Diagram</h4>
-<img src="https://github.com/ksa-banana/Java_Programming/blob/master/UML_Diagram/Scientific_Calculator_Class_Diagram.png?raw=true" width="70%" height="70%">
+<img src="" width="70%" height="70%">
 <br>
 <h4> 2) 클래스 생성</h4>
 <ul>
@@ -159,36 +159,8 @@
 <hr>
 <h3> 5. 코딩 및 테스트 (Coding and Test) </h3>
 <ul>
- <li><h4>애플리케이션 run</h4></li>
-  <img src="https://github.com/ksa-banana/Java_Programming/blob/master/image/App.PNG?raw=true" width="70%" height="70%">
-  <li><h4>애플리케이션 숫자 입력</h4></li>
-  <img src="https://github.com/ksa-banana/Java_Programming/blob/master/image/App_number.PNG?raw=true" width="70%" height="70%">
-  <li><h4>애플리케이션 덧셈 연산</h4></li>
-  <img src="https://github.com/ksa-banana/Java_Programming/blob/master/image/App_plus.PNG?raw=true" width="70%" height="70%">
-  <li><h4>애플리케이션 뺄셈 연산 </h4></li>
-  <img src="https://github.com/ksa-banana/Java_Programming/blob/master/image/App_minus.PNG?raw=true" width="70%" height="70%">
-   <li><h4>애플리케이션 곱셈 연산 </h4></li>
-  <img src="https://github.com/ksa-banana/Java_Programming/blob/master/image/App_multiplication.PNG?raw=true" width="70%" height="70%">
-   <li><h4>애플리케이션 나눗셈 연산 </h4></li>
-  <img src="https://github.com/ksa-banana/Java_Programming/blob/master/image/App_division.PNG?raw=true" width="70%" height="70%">
-    <li><h4>애플리케이션 나머지 연산 </h4></li>
-  <img src="https://github.com/ksa-banana/Java_Programming/blob/master/image/App_mod.PNG?raw=true" width="70%" height="70%">
-   <li><h4>애플리케이션 자연로그 지수 연산(exp()) </h4></li>
-  <img src="https://github.com/ksa-banana/Java_Programming/blob/master/image/App_expFunction.PNG?raw=true" width="70%" height="70%">
-    <li><h4>애플리케이션 상용로그 연산 (log) </h4></li>
-  <img src="https://github.com/ksa-banana/Java_Programming/blob/master/image/App_commonLogFunction.PNG?raw=true" width="70%" height="70%">
-     <li><h4>애플리케이션 거듭제곱 연산 </h4></li>
-  <img src="https://github.com/ksa-banana/Java_Programming/blob/master/image/App_involutionFunction.PNG?raw=true" width="70%" height="70%">
-      <li><h4>애플리케이션 팩토리얼 연산 </h4></li>
-  <img src="https://github.com/ksa-banana/Java_Programming/blob/master/image/App_factorialFunction.PNG?raw=true" width="70%" height="70%">
-        <li><h4>애플리케이션 소수점 연산 </h4></li>
-  <img src="https://github.com/ksa-banana/Java_Programming/blob/master/image/App_dot.PNG?raw=true" width="70%" height="70%">
-       <li><h4>애플리케이션 괄호 연산 </h4></li>
-  <img src="https://github.com/ksa-banana/Java_Programming/blob/master/image/App_Parenthesis.PNG?raw=true" width="70%" height="70%">
-        <li><h4>애플리케이션 Delete 기능 </h4></li>
-  <img src="https://github.com/ksa-banana/Java_Programming/blob/master/image/App_deleteFunction.PNG?raw=true" width="70%" height="70%">
-  <li><h4>애플리케이션 Reset 기능 </h4></li>
-  <img src="https://github.com/ksa-banana/Java_Programming/blob/master/image/App_resetFunction.PNG?raw=true" width="70%" height="70%">
-   <li><h4>애플리케이션 History 기능 </h4></li>
-  <img src="https://github.com/ksa-banana/Java_Programming/blob/master/image/App_History.PNG?raw=true" width="70%" height="70%">
+ <li><h4>결과 화면</h4></li>
+  <img src="https://github.com/ksa-banana/MFC_ImageProcessing/blob/master/Image/result_capture.PNG" width="70%" height="70%">
+  <li><h4>출력된 이미지</h4></li>
+  <img src="https://github.com/ksa-banana/MFC_ImageProcessing/blob/master/Image/result.bmp" width="70%" height="70%">
  </ul>
