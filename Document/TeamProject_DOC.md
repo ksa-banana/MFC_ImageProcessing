@@ -92,7 +92,7 @@
   <li><h4>OnDraw 알고리즘</h4></li>
  <img src="" width="20%" height="20%">
  <li><h4>OnFrameComb 알고리즘</h4></li>
- <img src="" width="20%" height="20%">
+ <img src="https://github.com/ksa-banana/MFC_ImageProcessing/blob/master/FlowChart/CView_OnFrameComb.png" width="20%" height="20%">
 </ul>
 <br>
 <br>
