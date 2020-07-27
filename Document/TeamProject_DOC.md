@@ -14,7 +14,7 @@
 <h4> (2) Sequence Diagram</h4>
 <img src="https://github.com/ksa-banana/MFC_ImageProcessing/blob/master/FlowChart/SequenceDiagram.png" width="50%" height="50%">
 <h4> (3) Class Diagram</h4>
-<img src="" width="70%" height="70%">
+<img src="https://github.com/ksa-banana/MFC_ImageProcessing/blob/master/FlowChart/ClassDiagram.png" width="70%" height="70%">
 <br>
 <h4> 2) 헤더 생성</h4>
 <ul>
