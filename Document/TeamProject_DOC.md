@@ -52,16 +52,15 @@
 <ul>
  <li><h5>Document 클래스 안에 있는 메서드</h5></li>
 <ul>
- <li><h5>OnOpenDocument 메서드: </h5></li>
- <li><h5>OnSaveDocument 메서드: </h5></li>
- <li><h5>OnFrameComb 메서드: </h5></li>
+ <li><h5>OnOpenDocument 메서드: 사용자가 화면에서 파일을 열때 실행되는 기능이다. </h5></li>
+ <li><h5>OnSaveDocument 메서드: 사용자가 화면에서 데이터를 저장할 때 실행되는 기능이다. </h5></li>
+ <li><h5>OnFrameComb 메서드: 입력된 영상, 마스크 영상, 합성할 영상을 가지고 논리연산을 하는 기능을 한다. </h5></li>
 </ul>
  <li><h5>View 클래스 안에 있는 메서드</h5></li>
 <ul>
  <li><h5>OnDraw 메서드: 애플리케이션의 화면을 통해서 데이터를 보여주는 기능을 한다.</h5></li>
  <li><h5>OnFrameComb 메서드: CDocument의 OnFrameComb 함수가 기능하도록 호출하는 기능을 한다.</h5></li>
 </ul>
-
 </ul>
 </ul>
 <br>
