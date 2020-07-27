@@ -71,7 +71,7 @@
 <ul>
  <li> <h4> 데이터 종류: BMP 영상, RAW 영상 </h4> </li>
  <li> <h4> 입력: BMP 영상, RAW 영상 (흑백 또는 컬러)</h4> </li>
- <li> <h4> 출력: BMP 영상 (픅백 또는 컬러)</h4></li>
+ <li> <h4> 출력: BMP 영상 (흑백 또는 컬러)</h4></li>
 </ul>
 <br>
 <br>
@@ -85,7 +85,7 @@
   <li><h4>OnSaveDocument 알고리즘</h4></li>
  <img src="https://github.com/ksa-banana/MFC_ImageProcessing/blob/master/FlowChart/OnSaveDocument.png" width="50%" height="50%">
   <li><h4>OnFrameComb 알고리즘</h4></li>
- <img src="" width="70%" height="70%">
+ <img src="https://github.com/ksa-banana/MFC_ImageProcessing/blob/master/FlowChart/OnFrameComb.png" width="70%" height="70%">
 </ul>
 <h4>2)View 클래스</h4>
 <ul>
