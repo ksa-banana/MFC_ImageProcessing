@@ -181,7 +181,8 @@ void CIMGKJY20200725View::OnDraw(CDC *pDC)
 				//pDC->SetPixel(j,i,RGB(R,G,B));
 				//영상 반전출력
 
-				pDC->SetPixel(j+ pDoc->dibHi.biWidth+10, pDoc->dibHi.biHeight - i - 1, RGB(R, G, B));
+				//pDC->SetPixel(j+ pDoc->dibHi.biWidth+10, pDoc->dibHi.biHeight - i - 1, RGB(R, G, B));
+				pDC->SetPixel(j, pDoc->dibHi.biHeight - i - 1, RGB(R, G, B));
 			}
 
 		}

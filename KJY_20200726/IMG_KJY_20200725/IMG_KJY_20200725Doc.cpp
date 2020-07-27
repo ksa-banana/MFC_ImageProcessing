@@ -144,68 +144,6 @@ BOOL CIMGKJY20200725Doc::OnOpenDocument(LPCTSTR lpszPathName)
 {
 	if (!CDocument::OnOpenDocument(lpszPathName))
 		return FALSE;
-
-	//// CFile에서 처리
-	//// 파일을 읽어들이면 이 클래스 형식으로 저장.
-	//CFile hFile;       
-	//// 이미지의 높이를 저장할 변수
-	//int height;
-	//// 이미지의 가로길이를 저장할 변수
-	//int width;
-	//
-	//// 파일 열기
-	//hFile.Open(lpszPathName, CFile::modeRead | CFile::typeBinary);
-	//// dibHf에 파일헤더를 읽어들인다.
-	//hFile.Read(&dibHf, sizeof(BITMAPFILEHEADER));                         
-
-
-	//// 이 파일이 BMP파일인지 검사 
-	//if (dibHf.bfType != 0x4D42)
-	//{
-	//	// 프로젝트 생성시 유니코드를 사용하게 할 경우
-	//	AfxMessageBox(L"Not BMP File");
-	//	return FALSE;
-	//}
-
-	//// 영상정보의 header를 읽기
-	//hFile.Read(&dibHi, sizeof(BITMAPINFOHEADER));
-	//
-	//// 8비트, 24비트가 아닐 경우
-	//if (dibHi.biBitCount != 8 && dibHi.biBitCount != 24)
-	//{
-	//	AfxMessageBox(L"Gray/True Color Possible");
-	//	return FALSE;
-	//}
-
-
-	//if (dibHi.biBitCount == 8) {
-
-	//	//8비트의 경우 팔레트를 생성해 주어야 한다. 총 256가지 색이므로 그 길이만큼 읽어들임
-	//	hFile.Read(palRGB, sizeof(RGBQUAD) * 256);
-	//}
-
-	////메모리 할당
-	//int ImgSize;
-
-	//if (dibHi.biBitCount == 8)
-	//{
-	//	//이미지의 크기는 파일 총 길이에서, 두 헤드와 팔레트의 사이즈를 제외
-	//	ImgSize = hFile.GetLength() - sizeof(BITMAPFILEHEADER) - sizeof(BITMAPINFOHEADER) - 256 * sizeof(RGBQUAD);
-
-	//	// 컬러영상
-	//}else if (dibHi.biBitCount == 24) {
-	//	ImgSize = hFile.GetLength() - sizeof(BITMAPFILEHEADER) - sizeof(BITMAPINFOHEADER);
-	//}
-
-	////이미지를 저장, 출력할 배열생성.
-	//m_inImg = new unsigned char[ImgSize];
-	//m_outImg = new unsigned char[ImgSize];
-	//hFile.Read(m_inImg, ImgSize);
-	//hFile.Close();
-
-	//이미지의 길이정보
-	//height = dibHi.biHeight;
-	//width = dibHi.biWidth;
 	
 	// CFile에서 처리
 	// 파일을 읽어들이면 이 클래스 형식으로 저장.
@@ -317,8 +255,20 @@ BOOL CIMGKJY20200725Doc::OnSaveDocument(LPCTSTR lpszPathName)
 		// 파일 열기
 		hFile.Open(SaveDlg.GetPathName(), CFile::modeCreate | CFile::modeWrite | CFile::typeBinary);
 		// 파일 쓰기
-		hFile.Write(m_OutputImage, m_size);
-		// 파일 닫기
+		//hFile.Write(m_OutputImage, m_size);
+		//// 파일 닫기
+		//hFile.Close();
+
+		//정보저장
+		hFile.Write(&dibHf, sizeof(BITMAPFILEHEADER));
+		hFile.Write(&dibHi, sizeof(BITMAPINFOHEADER));
+		if (dibHi.biBitCount == 8)
+			hFile.Write(palRGB, sizeof(RGBQUAD) * 256);
+
+		if (m_outImg)
+			hFile.Write(m_outImg, dibHi.biSizeImage);
+		else
+			hFile.Write(m_inImg, dibHi.biSizeImage);
 		hFile.Close();
 	}
 	
@@ -451,7 +401,7 @@ void CIMGKJY20200725Doc::OnNegaTransform()
 	}
 }
 
-
+/*영상 합성*/
 void CIMGKJY20200725Doc::OnFrameComb()
 {
 	CFile File1;
@@ -466,6 +416,11 @@ void CIMGKJY20200725Doc::OnFrameComb()
 	m_Re_height = m_height;
 	m_Re_width = m_width;
 	m_Re_size = m_Re_height * m_Re_width;
+
+	// 컬러영상 사이즈
+//	int image_size = dibHi.biSizeImage;
+	int image_size = 512*512*3;
+
 	m_outImg = new unsigned char[m_Re_size];
 	
 	unsigned char* result1;
@@ -502,33 +457,36 @@ void CIMGKJY20200725Doc::OnFrameComb()
 				temp2[(m_height - i - 1) * m_width + j] = temp1[i * m_width + j];
 			}
 		}
-		//masktemp = new unsigned char[m_size];
-		//File.Read(masktemp, m_size);
-		//File.Close();
 
-		and_result1 = new unsigned char[m_Re_size];
+		and_result1 = new unsigned char[image_size];
+		unsigned char* result_R = new unsigned char[m_Re_size];
+		unsigned char* result_G = new unsigned char[m_Re_size];
+		unsigned char* result_B = new unsigned char[m_Re_size];
+
 		//and_result2 = new unsigned char[m_Re_size];
 		// 프레임 간에 픽셀 대 픽셀로 AND 연산 실행
 
 
 
-		for (i = 0; i < m_Re_size; i++) {
-			// 영상의 최대값에서 마스크 영상의 값을 뺀다.
-			//maskvalue1 = temp2[i];
-			//maskvalue2 = 255 - temp2[i];
-			index = firstImg[i];
-			and_result1[i] = (palRGB[index].rgbRed & temp2[i]);
-			//and_result1[i] = (firstImg[i] & temp2[i]);
-			//m_outImg[i] = and_result1[i];
-			//and_result2[i] = (unsigned char)(temp[i] & maskvalue2);
+
+		if (dibHi.biBitCount == 8) {
+			for (i = 0; i < m_Re_size; i++) {
+				index = firstImg[i];
+				and_result1[i] = (palRGB[index].rgbRed & temp2[i]);
+			}
 		}
+		else {
 
-		//for (i = 0; i < m_Re_size; i++) {
+			for (i = 0; i < m_Re_size; i++) {
+				// 영상의 최대값에서 마스크 영상의 값을 뺀다.
 
-		//	m_outImg[i] = (and_result1[i] | and_result2[i]);
-		//	// 입력 영상과 마스크 영상은 AND 연산을 하고, 합성할 영상은
-		//	// (255-마스크 영상) 값과 AND 연산을 실행한 후 두 값을 더한다.
-		//}
+				index = firstImg[i];
+				result_R[i] = palRGB[index].rgbRed & temp2[i];
+				result_G[i] = palRGB[index].rgbGreen & temp2[i];
+				result_B[i] = palRGB[index].rgbBlue & temp2[i];
+				and_result1[i] = result_R[i] + result_G[i] + result_B[i];
+			}
+		}
 	}
 
 
@@ -592,13 +550,9 @@ void CIMGKJY20200725Doc::OnFrameComb()
 		File1.Close();
 		and_result2 = new unsigned char[m_Re_size];
 		for (i = 0; i < m_Re_size; i++) {
-			// 영상의 최대값에서 마스크 영상의 값을 뺀다.
-			//maskvalue1 = temp2[i];
+
 			maskvalue2 = 255 - temp2[i];
-			//and_result1[i] = (unsigned char)(m_inImg[i] & maskvalue1);
 			and_result2[i] = ((unsigned char)temp[i] & (unsigned char)maskvalue2);
-			//m_outImg[i] += and_result1[i];
-			//and_result2[i] = (unsigned char)(temp[i] & maskvalue2);
 		}
 
 	}// 입력 영상, 합성할 영상, 마스크 영상의 크기가 같아야 한다.
@@ -611,126 +565,6 @@ void CIMGKJY20200725Doc::OnFrameComb()
 	// 입력 영상과 마스크 영상은 AND 연산을 하고, 합성할 영상은
 	// (255-마스크 영상) 값과 AND 연산을 실행한 후 두 값을 더한다.
 	}
-
-
-
-	//	AfxMessageBox(L"입력 영상의 마스크 영상을 입력하시오");
-
-
-
-	//if (OpenDlg.DoModal() == IDOK) { // 입력 영상의 마스크 영상
-	//	File2.Open(OpenDlg.GetPathName(), CFile::modeRead | CFile::typeBinary);
-	//	temp1 = new unsigned char[m_Re_size];
-	//	temp2 = new unsigned char[m_Re_size];
-	//	File2.Read(temp1, m_Re_size);
-	//	File2.Close();
-
-	//	// 영상 상하 반전
-	//	// 입력 영상의 배열 값을 출력 영상을 위한 배열의 수평축 뒷자리부터 저장
-	//	for (i = 0; i < m_height; i++) {
-	//		for (int j = 0; j < m_width; j++) {
-	//			temp2[(m_height - i - 1) * m_width + j] = temp1[i * m_width + j];
-	//		}
-	//	}
-	//	//masktemp = new unsigned char[m_size];
-	//	//File.Read(masktemp, m_size);
-	//	//File.Close();
-
-	//	and_result1 = new unsigned char[m_Re_size];
-	//	and_result2 = new unsigned char[m_Re_size];
-	//	// 프레임 간에 픽셀 대 픽셀로 AND 연산 실행
-
-	//	for (i = 0; i < m_Re_size; i++) {
-	//		// 영상의 최대값에서 마스크 영상의 값을 뺀다.
-	//		maskvalue1 = temp2[i];
-	//		maskvalue2 = 255 - temp2[i];
-	//		and_result1[i] = (unsigned char)(m_inImg[i] & maskvalue1);
-	//		and_result2[i] = (unsigned char)(temp[i] & maskvalue2);
-	//	}
-	//
-	//	for (i = 0; i < m_Re_size; i++) {
-	//
-	//		m_outImg[i] = (and_result1[i] | and_result2[i]);
-	//		// 입력 영상과 마스크 영상은 AND 연산을 하고, 합성할 영상은
-	//		// (255-마스크 영상) 값과 AND 연산을 실행한 후 두 값을 더한다.
-	//	}
-	//}
-
-
-	//bmp 파일 마스크
-	//AfxMessageBox(L"입력 영상의 마스크 영상을 입력하시오");
-
-
-
-	//if (OpenDlg.DoModal() == IDOK) { // 입력 영상의 마스크 영상
-	//	File2.Open(OpenDlg.GetPathName(), CFile::modeRead | CFile::typeBinary);
-	//	// dibHf에 파일헤더를 읽어들인다.
-	//	File2.Read(&dibHf, sizeof(BITMAPFILEHEADER));
-
-	//	/*BMP*/
-	//	// 영상정보의 header를 읽기
-	//	File2.Read(&dibHi, sizeof(BITMAPINFOHEADER));
-
-	//	// 8비트, 24비트가 아닐 경우
-	//	if (dibHi.biBitCount != 8 && dibHi.biBitCount != 24)
-	//	{
-	//		AfxMessageBox(L"Gray/True Color Possible");
-	//		return;
-	//	}
-
-	//	if (dibHi.biBitCount == 8) {
-	//		//8비트의 경우 팔레트를 생성해 주어야 한다. 총 256가지 색이므로 그 길이만큼 읽어들임
-	//		File2.Read(palRGB, sizeof(RGBQUAD) * 256);
-	//	}
-
-	//	//메모리 할당
-	//	int ImgSize;
-
-	//	if (dibHi.biBitCount == 8)
-	//	{
-	//		//이미지의 크기는 파일 총 길이에서, 두 헤드와 팔레트의 사이즈를 제외
-	//		ImgSize = File2.GetLength() - sizeof(BITMAPFILEHEADER) - sizeof(BITMAPINFOHEADER) - 256 * sizeof(RGBQUAD);
-
-	//		// 컬러영상
-	//	}
-	//	else if (dibHi.biBitCount == 24) {
-	//		ImgSize = File2.GetLength() - sizeof(BITMAPFILEHEADER) - sizeof(BITMAPINFOHEADER);
-	//	}
-	//	temp1 = new unsigned char[m_Re_size];
-	//	File2.Read(temp1, ImgSize);
-	//	File2.Close();
-
-	//	// 영상 상하 반전
-	//	// 입력 영상의 배열 값을 출력 영상을 위한 배열의 수평축 뒷자리부터 저장
-	//	//for (i = 0; i < m_height; i++) {
-	//	//	for (int j = 0; j < m_width; j++) {
-	//	//		temp2[(m_height - i - 1) * m_width + j] = temp1[i * m_width + j];
-	//	//	}
-	//	//}
-	//	//masktemp = new unsigned char[m_size];
-	//	//File.Read(masktemp, m_size);
-	//	//File.Close();
-
-	//	result1 = new unsigned char[m_Re_size];
-	//	result2 = new unsigned char[m_Re_size];
-	//	// 프레임 간에 픽셀 대 픽셀로 AND 연산 실행
-
-	//	for (i = 0; i < m_Re_size; i++) {
-	//		// 영상의 최대값에서 마스크 영상의 값을 뺀다.
-	//		maskvalue1 = temp1[i];
-	//		maskvalue2 = 255 - temp1[i];
-	//		result1[i] = (unsigned char)(firstImg[i] & maskvalue1);
-	//		//result2[i] = (unsigned char)(temp[i] & maskvalue2);
-	//	}
-
-	//	//for (i = 0; i < m_Re_size; i++) {
-
-	//	//	m_outImg[i] = (result1[i] | result2[i]);
-	//	//	// 입력 영상과 마스크 영상은 AND 연산을 하고, 합성할 영상은
-	//	//	// (255-마스크 영상) 값과 AND 연산을 실행한 후 두 값을 더한다.
-	//	//}
-	//}
-
 
 }
 
