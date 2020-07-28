@@ -25,10 +25,10 @@
 
 <ul>
   <li>
-    <h5><a href="">프로젝트 명: BMP 파일 합성</a></h5>
+    <h5><a href="https://github.com/ksa-banana/MFC_ImageProcessing/tree/master/Version_1.0">프로젝트 명: BMP 파일 합성</a></h5>
     <ul>
       <li>
-    <h5>프로젝트 구현 목적: BMP 파일의 입출력과 MASK 연산</h5>
+    <h5>프로젝트 구현 목적: BMP 파일의 입출력과 MASK 연산(논리연산: AND, OR)</h5>
       </li>
       <li>
     <h5>프로젝트 기간: 2020.07.25~2020.07.27 (총 3일)</h5>
