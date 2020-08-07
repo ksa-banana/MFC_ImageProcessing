@@ -41,7 +41,7 @@
           <h5>강나래: BMP 파일 저장, 문서화 수정, FlowChart 작성 </h5> 
         </li>
          <li>
-          <h5>김주연: MASK AND 연산/ MASK OR 연산, 문서화, FlowChart 작성, 프로그램 구현 시연 녹화</h5> 
+          <h5>김주연: MASK AND 연산/ MASK OR 연산, 문서화, Flowchart 작성, 프로그램 구현 시연 녹화</h5> 
         </li>
          <li>
           <h5>임성환: BMP 파일 읽기, 문서화 수정, FlowChart 작성</h5> 
