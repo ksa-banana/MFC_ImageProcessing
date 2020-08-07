@@ -26,17 +26,17 @@
 <ul>
   <li>
     <h5><a href="https://github.com/ksa-banana/MFC_ImageProcessing/tree/master/Version_1.0">프로젝트 명: BMP 파일 합성</a></h5>
-    <ul>
-      <li>
+  </li>
+  <li>
     <h5>프로젝트 구현 목적: BMP 파일의 입출력과 MASK 연산(논리연산: AND, OR)</h5>
-      </li>
-      <li>
+  </li>
+   <li>
     <h5>프로젝트 기간: 2020.07.25~2020.07.27 (총 3일)</h5>
-      </li>
-     <li>
+   </li>
+   <li>
     <h5>역할 분담</h5>
-      </li>
-      <ul>
+   </li>
+     <ul>
         <li>
           <h5>강나래: BMP 파일 저장, 문서화 수정, FlowChart 작성 </h5> 
         </li>
@@ -47,12 +47,12 @@
           <h5>임성환: BMP 파일 읽기, 문서화 수정, FlowChart 작성</h5> 
         </li>
       </ul>
-      <li>
-        <h5><a href="https://github.com/ksa-banana/MFC_ImageProcessing/blob/master/Document/TeamProject_DOC.md">프로젝트 문서화</a></h5>
-      </li>
-       <li>
-        <h5><a href="https://youtu.be/vDR5q94ZbR8">프로젝트 동영상</a></h5>
-      </li>
+    <li>
+      <h5><a href="https://github.com/ksa-banana/MFC_ImageProcessing/blob/master/Document/TeamProject_DOC.md">프로젝트 문서화</a></h5>
+    </li>
+    <li>
+      <h5><a href="https://youtu.be/vDR5q94ZbR8">프로젝트 동영상</a></h5>
+    </li>
    </ul>
 </li>
 </ul>
